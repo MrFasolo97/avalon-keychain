@@ -260,7 +260,7 @@ $("#send_div .back_enabled").text(
   chrome.i18n.getMessage("popup_html_transfer_funds")
 );
 $(".send_max").text(chrome.i18n.getMessage("popup_html_send_max"));
-$("#balance").text(chrome.i18n.getMessage("popup_html_balance", ["HIVE"]));
+$("#balance").text(chrome.i18n.getMessage("popup_html_balance", ["DTC"]));
 $("#loading_balance").text(chrome.i18n.getMessage("popup_html_loading"));
 $("#recipient").attr(
   "placeholder",
@@ -418,7 +418,7 @@ $("#send_del").text(chrome.i18n.getMessage("popup_html_delegate_to_user"));
 
 //Outgoing
 $("#outgoing_del_div .back_enabled").text(
-  chrome.i18n.getMessage("popup_html_outgoing", ["HP"])
+  chrome.i18n.getMessage("popup_html_outgoing", ["VP"])
 );
 $("#total_outgoing span")
   .eq(0)
@@ -426,7 +426,7 @@ $("#total_outgoing span")
 
 //Incoming
 $("#incoming_del_div .back_enabled").text(
-  chrome.i18n.getMessage("popup_html_incoming", ["HP"])
+  chrome.i18n.getMessage("popup_html_incoming", ["VP"])
 );
 $("#total_incoming span")
   .eq(0)
@@ -481,13 +481,13 @@ $("#add_auth_account_div button").text(
 
 // convert
 $("#convert_hive").append(chrome.i18n.getMessage("popup_html_convert_hive"));
-$("#convert_hive_div .back_enabled").append(
+$("#convert_dtc_div .back_enabled").append(
   chrome.i18n.getMessage("popup_html_convert_hive")
 );
-$("#convert_hive_div p").text(
+$("#convert_dtc_div p").text(
   chrome.i18n.getMessage("popup_html_convert_hive_intro")
 );
-$("#convert_hive_div button").text(
+$("#convert_dtc_div button").text(
   chrome.i18n.getMessage("popup_html_convert_button")
 );
 $("#amt_convert_max_hive").text(

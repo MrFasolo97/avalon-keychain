@@ -84,6 +84,7 @@
         <div id="wallet_amt">
           <div class="wallet_infos"><div class="main_currency" id="dtc_balance">...</div><div class="additional_wallet_data"></div></div>
           <div class="wallet_infos"><div class="main_currency" id="vp_balance">...</div><div class="additional_wallet_data"></div></div>
+          <div class="wallet_infos"><div class="main_currency" id="bw_balance">...</div><div class="additional_wallet_data"></div></div>
           <!--<div class="wallet_infos"><div class="main_currency">...</div><div class="additional_wallet_data"></div></div>-->
         </div>
         <div id="wallet_currency">
@@ -96,10 +97,7 @@
           </div>
           <div class="currency-section">
             <div class="vp-section">VP</div>
-            <!-- <div class="dropdown">
-              <div id="send_sbd"><img src="../images/transfer.png" /></div>
-              <div id="buy_hbd"><img src="../images/buy.svg" /></div>
-            </div> -->
+            <div class="bw-section">BW</div>
           </div>
         </div>
 
@@ -560,7 +558,7 @@
         <div><img src="../images/loading.gif" /></div>
       </div>
     </div>
-    <div id="convert_hive_div" class="hide-at-start">
+    <div id="convert_dtc_div" class="hide-at-start">
       <div class="back_menu back_enabled"></div>
       <p></p>
       <input
@@ -570,7 +568,7 @@
         placeholder="0.000"
       />
 
-      <div class="sp_del">HIVE</div>
+      <div class="sp_del">DTC</div>
 
       <div class="send_max_div">
         <span class="convert_max" id="amt_convert_max_hive"></span>
@@ -687,7 +685,7 @@
       <input type="text" id="user_pu" />
       <input type="number" id="amt_pu" placeholder="0.000" />
       <div class="sp_del">
-        HIVE
+        DTC
       </div>
       <div class="send_max_div">
         <span class="send_max" id="pu_max"></span>
@@ -808,26 +806,26 @@
       />
       <div id="witness_toggle"></div>
       <div class="witness_container" id="fasolo97">
-        <button>@fasolo97</button>
+        <button style="width:100px;">@fasolo97</button>
         <img
           src="../images/icon_witness-vote_default.svg"
           class="input_img_right_submit"
         />
       </div>
       <div class="witness_container" id="brishtiteveja0595">
-        <button>@brishtiteveja0595</button>
+        <button style="width:150px;">@brishtiteveja0595</button>
         <img
           src="../images/icon_witness-vote_default.svg"
           class="input_img_right_submit"
         />
       </div>
-      <div class="witness_container" id="">
+      <!-- <div class="witness_container" id="">
         <button></button>
         <img
           src="../images/icon_witness-vote_default.svg"
           class="input_img_right_submit"
         />
-      </div>
+      </div> -->
     </div>
     <div id="proposal_vote" class="hide-at-start">
       <p></p>

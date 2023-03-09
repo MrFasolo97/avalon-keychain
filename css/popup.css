@@ -9,7 +9,7 @@ html {
   border-radius: 1px;
   margin: 0 !important;
   padding: 0 !important;
-  background: transparent linear-gradient(330deg, #000000 0%, #59626c 100%) 0%
+  background: transparent linear-gradient(330deg, #91d6f4 0%, #4b91e1 100%) 0%
     0% no-repeat padding-box !important;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -80,7 +80,7 @@ body {
 #add_account_types_div,
 #add_auth_account_div,
 #convert_div,
-#convert_hive_div,
+#convert_dtc_div,
 #buy_div,
 #savings_div {
   scrollbar-width: none;
@@ -182,7 +182,7 @@ input:focus {
 #add_account_types_div input,
 #add_auth_account_div input,
 #convert_div input,
-#convert_hive_div input,
+#convert_dtc_div input,
 #savings_div input {
   width: 100%;
   height: 48.43px;
@@ -252,7 +252,7 @@ input:focus {
 #import_settings button,
 #automated_ops_div button,
 #convert_div button,
-#convert_hive_div button,
+#convert_dtc_div button,
 #savings_div button {
   border-radius: 5px;
   width: 100%;
@@ -400,7 +400,7 @@ input:focus {
 #add_account_types_div,
 #add_auth_account_div,
 #convert_div,
-#convert_hive_div {
+#convert_dtc_div {
   display: none;
 }
 
@@ -748,6 +748,15 @@ input:focus {
   cursor: pointer;
 }
 
+.currency-section .vp-section {
+  margin-right: 50px;
+}
+
+.currency-section .bw-section {
+  margin-top: 20px;
+  margin-right: 40px;
+}
+
 .dropdown-open::after {
   background-image: url("../images/uparrow.png") !important;
 }
@@ -959,6 +968,10 @@ input:focus {
 
 .memo {
   text-overflow: clip;
+}
+
+#send_div {
+  background-color: rgba(33, 37, 41) 
 }
 
 #send_div #amt_send {
@@ -2202,13 +2215,13 @@ input[type="checkbox"] {
   margin-bottom: 30px;
 }
 #convert_div p,
-#convert_hive_div p {
+#convert_dtc_div p {
   margin-bottom: 50px;
   margin-top: 30px;
 }
 #convert_div button,
 #convert_loading,
-#convert_hive_div button,
+#convert_dtc_div button,
 #convert_hive_loading {
   margin-top: 40px;
 }

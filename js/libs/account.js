@@ -8,8 +8,8 @@ class Account {
     this.lastVPUpdateTS = 0;
     this.lastBWUpdateTS = 0;
   }
-  init() {
-    this.updateUserData();
+  async init() {
+    await this.updateUserData();
     this.props = new GlobalProps();
   }
   saveAccountInfo(err, info) {
@@ -21,6 +21,8 @@ class Account {
   }
   async updateUserData() {
     await javalon.getAccount(this.account.name, (err, res) => {
+      res["vp"] = res.vt.v
+      res["bw"] = res.bw.v
       this.saveAccountInfo(err, res);
     });
   }
@@ -134,25 +136,11 @@ class Account {
   }
 
   async getVP() {
-    if (this.lastVPUpdateTS + 60000 < Date.now()) {
-      await javalon.getAccount(this.account.name, (err, result) => {
-        if(err) throw err;
-        this.vp = result.vt.v;
-      });
-    }
-    if(this.vp !== -1)
-      return this.vp;
+    return await this.getAccountInfo("vp");
   }
 
   async getBW() {
-    if (this.lastBWUpdateTS + 60000 < Date.now()) {
-      await javalon.getAccount(this.account.name, (err, result) => {
-        if(err) throw err;
-        this.bw = result.bw;
-      });
-    }
-    if(this.bw !== -1)
-      return this.bw;
+    return await this.getAccountInfo("bw");
   }
 
   async getVotingDollars(percentage) {

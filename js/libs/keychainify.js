@@ -59,7 +59,7 @@ const keychainify = {
           to: null,
           amount: 0,
           memo: "",
-          currency: "HIVE"
+          currency: "DTC"
         };
 
         payload = Object.assign(defaults, vars);

@@ -1,5 +1,5 @@
 const transferValidator = new TransferValidator();
-chrome.runtime.onMessage.addListener(function (
+chrome.runtime.onMessage.addListener(async () => (
   { msg, accounts, command, data, tab, domain, request_id, testnet },
   sender,
   sendResp
@@ -386,7 +386,7 @@ chrome.runtime.onMessage.addListener(function (
         break;
       case "transfer":
         encode = memo !== undefined && memo.length > 0 && memo[0] === "#";
-        showBalances(username, currency, amount);
+        await showBalances(username, currency, amount);
         enforce = enforce || encode;
         if (enforce) {
           $("#username").show();
@@ -455,7 +455,7 @@ chrome.runtime.onMessage.addListener(function (
         $("#proxy").text(proxy.length ? proxy : "None");
         break;
       case "sendToken":
-        showBalances(username, currency, amount);
+        await showBalances(username, currency, amount);
         $("#to").text(`@${to}`);
         $("#amount").text(`${amount} ${currency}`);
         $("#memo").text(memo);
@@ -595,12 +595,13 @@ const showBalances = async (user, currency, amount) => {
   let balance = 0;
   let accountsList = new AccountsList();
   const activeAccount = await accountsList.get(user);
-  if(["dtc", "vp"].includes(currency.toLowerCase())) {
+  if(["dtc"].includes(currency.toLowerCase())) {
     if(currency == "dtc") {
       balance = activeAccount.getDTC();
-    } else if (currency == "vp") {
-      balance = activeAccount.getVP();
-    }
+    } 
+    // else if (currency == "vp") {
+    //   balance = activeAccount.getVP();
+    // }
     $("#balance").text(`${balance}  ${currency}`).show();
     const balance_after = (balance - amount).toFixed(3);
     $("#balance_after")
@@ -628,7 +629,7 @@ const getTokens = async (account) => {
   return -1;
 };
 
-function initiateCustomSelect(data) {
+const initiateCustomSelect = async(data) => {
   /*look for any elements with the class "custom-select":*/
   let prev_username = data.username;
   x = document.getElementsByClassName("custom-select");
@@ -672,7 +673,7 @@ function initiateCustomSelect(data) {
       b.appendChild(c);
     }
     x[i].appendChild(b);
-    a.addEventListener("click", function (e) {
+    a.addEventListener("click", async(e) => {
       /*when the select box is clicked, close any other select boxes,
       and open/close the current select box:*/
       e.stopPropagation();
@@ -682,7 +683,7 @@ function initiateCustomSelect(data) {
         $("#balance , #balance_after").hide();
         $("#balance_loading").show();
         $("#username").text(username);
-        showBalances(username, data.currency, data.amount);
+        await showBalances(username, data.currency, data.amount);
         prev_username = username;
       }
       this.nextSibling.classList.toggle("select-hide");

@@ -103,6 +103,7 @@ const showUserData = async (activeAccount) => {
   //$("#rc_info").attr("title", full);
   $(".main_currency#dtc_balance").html("...");
   $(".main_currency#vp_balance").html("...");
+  $(".main_currency#bw_balance").html("...");
   const accountValue = await activeAccount.getAccountValue();
   if (accountValue) {
     $("#account_value_amt").html(accountValue);
@@ -111,7 +112,7 @@ const showUserData = async (activeAccount) => {
       chrome.i18n.getMessage("popup_accounts_no_bittrex")
     );
   }
-  showBalances(activeAccount);
+  await showBalances(activeAccount);
 };
 
 const getAccountHistory = async () => {
@@ -464,8 +465,9 @@ const addKeys = (i, key, priv, pub, name) => {
 
 // show balance for this account
 const showBalances = async (activeAccount) => {
-  $(".main_currency#vp_balance").html("" + await activeAccount.getVP());
   $(".main_currency#dtc_balance").html("" + (await activeAccount.getDTC()).toFixed(2));
+  $(".main_currency#vp_balance").html("" + await activeAccount.getVP());
+  $(".main_currency#bw_balance").html("" + await activeAccount.getBW());
   $("#balance_loader").hide();
 };
 

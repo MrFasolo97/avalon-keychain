@@ -10,7 +10,7 @@ $("#convert_hbd").click(() => {
 
 $("#convert_hive").click(() => {
   $("#main").hide();
-  $("#convert_hive_div").show();
+  $("#convert_dtc_div").show();
   getNextRequestID();
 });
 

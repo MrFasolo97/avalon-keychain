@@ -414,7 +414,7 @@ async function sendTransfer() {
       $("#send_div").show();
       if (currency == "HBD") {
         $(".transfer_balance div").eq(1).html(numberWithCommas(sbd));
-      } else if (currency == "HIVE") {
+      } else if (currency == "DTC") {
         $(".transfer_balance div").eq(1).html(numberWithCommas(steem_p));
       }
       $(".error_div").hide();

@@ -393,7 +393,7 @@ function initiateCustomSelect(options, current_rpc) {
         const balance = activeAccount.getVP();
         $(".transfer_balance div")
           .eq(0)
-          .text(chrome.i18n.getMessage("popup_html_balance", ["HIVE"]));
+          .text(chrome.i18n.getMessage("popup_html_balance", ["DTC"]));
         $(".transfer_balance div").eq(1).html(numberWithCommas(balance));
         $("#amt_send_max")
           .unbind("click")

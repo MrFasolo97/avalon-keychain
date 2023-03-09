@@ -12,11 +12,11 @@ $("#save_hive").click(async () => {
     chrome.i18n.getMessage("popup_html_deposit")
   ) {
     $("#savings_div button").text(
-      chrome.i18n.getMessage("popup_html_deposit", ["HIVE"])
+      chrome.i18n.getMessage("popup_html_deposit", ["DTC"])
     );
   } else {
     $("#savings_div button").text(
-      chrome.i18n.getMessage("popup_html_withdraw", ["HIVE"])
+      chrome.i18n.getMessage("popup_html_withdraw", ["DTC"])
     );
     $("#savings_div p").text(
       chrome.i18n.getMessage("popup_html_withdraw_text")
